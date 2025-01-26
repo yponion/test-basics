@@ -1,4 +1,7 @@
 module.exports = {
-  present: "js-test",
+  preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom",
+  moduleNameMapper: {
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.cjs",
+  },
 };
