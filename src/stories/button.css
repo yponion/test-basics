@@ -2,18 +2,22 @@
   display: inline-block;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
+  border-radius: 4px;
   font-weight: 700;
   line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.storybook-button:disabled {
+  background-color: var(--mono-100);
+  color: var(--mono-200);
 }
 .storybook-button--primary {
-  background-color: #555ab9;
+  background-color: var(--primary);
   color: white;
 }
 .storybook-button--secondary {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
+  background-color: var(--secondary);
   color: #333;
 }
 .storybook-button--small {
