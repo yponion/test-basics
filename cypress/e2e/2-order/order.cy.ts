@@ -65,4 +65,22 @@ describe('주문을 테스트 한다', () => {
     cy.get('@pizzaBtn').click();
     cy.url().should('include', '/food-type/1');
   })
+
+  it('사용자는 원하는 레스토랑을 선택할 수 있다.', () => {
+    cy.visit('/food-type/1');
+    cy.intercept(
+      {
+        method: 'get',
+        url: '/restaurant/food-type/1',
+      },
+      {
+        fixture: 'restaurant-list.json',
+      },
+    );
+    cy.fixture('restaurant-list.json').then((restaurantList) => {
+      cy.get(`[data-cy=${restaurantList[0].id}]`).should('be.visible').as('restaurantBtn');
+      cy.get('@restaurantBtn').click();
+      cy.url().should('include', '/restaurant/1')
+    })
+  })
 })
